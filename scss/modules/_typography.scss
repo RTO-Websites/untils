@@ -1,0 +1,50 @@
+/**
+ * Typography
+ *
+ * @author RTO GmbH <info.rto.de>
+ * @license GPL-3.0
+ */
+
+$text-bold: bold !default;
+
+$text-bold-breakpoints: (
+  small: $text-bold,
+  medium: $text-bold,
+  large: $text-bold,
+) !default;
+
+.text-bold {
+  font-weight: $text-bold;
+
+  @each $breakpoint, $value in $text-bold-breakpoints {
+
+    @include breakpoint($breakpoint) {
+      &-#{$breakpoint} {
+        font-weight: $value;
+      }
+    }
+  }
+}
+
+$text-uppercase: uppercase !default;
+
+$text-uppercase-breakpoints: (
+  small: $text-uppercase,
+  medium: $text-uppercase,
+  large: $text-uppercase,
+) !default;
+
+.text-upper,
+.text-uppercase {
+  text-transform: $text-uppercase;
+}
+
+@each $breakpoint, $value in $text-uppercase-breakpoints {
+
+  @include breakpoint($breakpoint) {
+    .#{$breakpoint}-text-upper,
+    .#{$breakpoint}-text-uppercase {
+      text-transform: $value;
+    }
+  }
+}

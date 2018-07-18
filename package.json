@@ -1,0 +1,24 @@
+{
+  "name": "website-builder-utils",
+  "version": "1.0.0",
+  "description": "A collection of usefull CSS (SASS) and Javascript modules.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RTO-Websites/website-builder-utils.git"
+  },
+  "keywords": [
+    "CSS",
+    "SASS",
+    "Javascript"
+  ],
+  "author": "RTO GmbH",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/RTO-Websites/website-builder-utils/issues"
+  },
+  "homepage": "https://github.com/RTO-Websites/website-builder-utils#readme"
+}

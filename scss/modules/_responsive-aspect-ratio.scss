@@ -1,0 +1,59 @@
+/**
+ * Responsive aspect ratio
+ *
+ * @author RTO GmbH <info.rto.de>
+ * @license GPL-3.0
+ * @example:
+ *    <div class="responsive-aspect-ratio ratio-square">
+ *      <div class="aspect-ratio-content">
+ *        Content
+ *      </div>
+ *    </div>
+ */
+
+$ratios: (
+  (x: 1, y: 1, alias: 'square'),
+  (x: 16, y: 9, alias: ''),
+  (x: 9, y: 16, alias: ''),
+  (x: 4, y: 3, alias: ''),
+  (x: 3, y: 4, alias: ''),
+  (x: 2, y: 1, alias: ''),
+  (x: 1, y: 2, alias: ''),
+) !default;
+
+@mixin ratio($x, $y, $alias) {
+  $ratio-percent: $y/$x*100%;
+  .responsive-aspect-ratio {
+    @if $alias != "" {
+      &.ratio-#{$alias}::after {
+        padding-top: $ratio-percent;
+      }
+    }
+    &.ratio-#{$x}by#{$y}::after {
+      padding-top: $ratio-percent;
+    }
+  }
+}
+
+.responsive-aspect-ratio {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+
+  .aspect-ratio-content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+  }
+}
+
+@each $ratio in $ratios {
+  @include ratio(map_get($ratio, x), map_get($ratio, y), map_get($ratio, alias));
+}

@@ -1,0 +1,92 @@
+/**
+ * Gap
+ *
+ * @author RTO GmbH <info.rto.de>
+ * @license GPL-3.0
+ * @example:
+ *    <div class="small-gap-bottom-tiny large-gap-bottom-median">
+ *      Content
+ *    </div>
+ */
+
+$gap-size-none: 0 !default;
+$gap-size-tiny: 10 !default;
+$gap-size-median: 20 !default;
+$gap-size-big: 30 !default;
+
+$gap-sizes: (
+  none: $gap-size-none,
+  tiny: $gap-size-tiny,
+  median: $gap-size-median,
+  big: $gap-size-big
+) !default;
+
+$gaps: (
+  small: (
+    top: (
+      none: map_get($gap-sizes, none),
+      tiny: map_get($gap-sizes, tiny),
+      median: map_get($gap-sizes, median),
+      big: map_get($gap-sizes, big),
+    ),
+    bottom: (
+      none: map_get($gap-sizes, none),
+      tiny: map_get($gap-sizes, tiny),
+      median: map_get($gap-sizes, median),
+      big: map_get($gap-sizes, big),
+    ),
+  ),
+  medium: (
+    top: (
+      none: map_get($gap-sizes, none),
+      tiny: map_get($gap-sizes, tiny),
+      median: map_get($gap-sizes, median),
+      big: map_get($gap-sizes, big),
+    ),
+    bottom: (
+      none: map_get($gap-sizes, none),
+      tiny: map_get($gap-sizes, tiny),
+      median: map_get($gap-sizes, median),
+      big: map_get($gap-sizes, big),
+    ),
+  ),
+  large: (
+    top: (
+      none: map_get($gap-sizes, none),
+      tiny: map_get($gap-sizes, tiny),
+      median: map_get($gap-sizes, median),
+      big: map_get($gap-sizes, big),
+    ),
+    bottom: (
+      none: map_get($gap-sizes, none),
+      tiny: map_get($gap-sizes, tiny),
+      median: map_get($gap-sizes, median),
+      big: map_get($gap-sizes, big),
+    ),
+  ),
+) !default;
+
+@each $side in top, bottom {
+
+  @each $size, $value in $gap-sizes {
+
+    .gap-#{$side}-#{$size} {
+      margin-#{$side}: rem-calc($value);
+    }
+  }
+}
+
+@each $breakpoint, $sides in $gaps {
+
+  @each $side, $sizes in $sides {
+
+    @each $size, $value in $sizes {
+
+      @include breakpoint($breakpoint) {
+        .#{$breakpoint}-gap-#{$side}-#{$size} {
+          margin-#{$side}: rem-calc($value);
+        }
+      }
+    }
+  }
+}
