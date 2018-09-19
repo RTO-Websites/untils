@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/RTO-Websites/website-builder-utils/issues"
   },
-  "homepage": "https://github.com/RTO-Websites/website-builder-utils#readme"
+  "homepage": "https://github.com/RTO-Websites/website-builder-utils#readme",
+  "peerDependencies": {
+    "foundation-sites": "^6.0.0"
+  }
 }
