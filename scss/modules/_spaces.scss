@@ -1,0 +1,92 @@
+/**
+ * Space
+ *
+ * @author RTO GmbH <info.rto.de>
+ * @license GPL-3.0
+ * @example:
+ *    <div class="small-space-bottom-tiny large-space-bottom-median">
+ *      Content
+ *    </div>
+ */
+
+$space-size-none: 0 !default;
+$space-size-tiny: 10 !default;
+$space-size-median: 20 !default;
+$space-size-big: 30 !default;
+
+$space-sizes: (
+  none: $space-size-none,
+  tiny: $space-size-tiny,
+  median: $space-size-median,
+  big: $space-size-big
+) !default;
+
+$spaces: (
+  small: (
+    top: (
+      none: map_get($space-sizes, none),
+      tiny: map_get($space-sizes, tiny),
+      median: map_get($space-sizes, median),
+      big: map_get($space-sizes, big),
+    ),
+    bottom: (
+      none: map_get($space-sizes, none),
+      tiny: map_get($space-sizes, tiny),
+      median: map_get($space-sizes, median),
+      big: map_get($space-sizes, big),
+    ),
+  ),
+  medium: (
+    top: (
+      none: map_get($space-sizes, none),
+      tiny: map_get($space-sizes, tiny),
+      median: map_get($space-sizes, median),
+      big: map_get($space-sizes, big),
+    ),
+    bottom: (
+      none: map_get($space-sizes, none),
+      tiny: map_get($space-sizes, tiny),
+      median: map_get($space-sizes, median),
+      big: map_get($space-sizes, big),
+    ),
+  ),
+  large: (
+    top: (
+      none: map_get($space-sizes, none),
+      tiny: map_get($space-sizes, tiny),
+      median: map_get($space-sizes, median),
+      big: map_get($space-sizes, big),
+    ),
+    bottom: (
+      none: map_get($space-sizes, none),
+      tiny: map_get($space-sizes, tiny),
+      median: map_get($space-sizes, median),
+      big: map_get($space-sizes, big),
+    ),
+  ),
+) !default;
+
+@each $side in top, bottom {
+
+  @each $size, $value in $space-sizes {
+
+    .space-#{$side}-#{$size} {
+      padding-#{$side}: rem-calc($value);
+    }
+  }
+}
+
+@each $breakpoint, $sides in $spaces {
+
+  @each $side, $sizes in $sides {
+
+    @each $size, $value in $sizes {
+
+      @include breakpoint($breakpoint) {
+        .#{$breakpoint}-space-#{$side}-#{$size} {
+          padding-#{$side}: rem-calc($value);
+        }
+      }
+    }
+  }
+}
