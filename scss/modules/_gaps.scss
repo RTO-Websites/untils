@@ -8,6 +8,7 @@
  *      Content
  *    </div>
  */
+@import "../sharedVariables/sides";
 
 $gap-size-none: 0 !default;
 $gap-size-tiny: 10 !default;
@@ -21,52 +22,7 @@ $gap-sizes: (
   big: $gap-size-big
 ) !default;
 
-$gaps: (
-  small: (
-    top: (
-      none: map_get($gap-sizes, none),
-      tiny: map_get($gap-sizes, tiny),
-      median: map_get($gap-sizes, median),
-      big: map_get($gap-sizes, big),
-    ),
-    bottom: (
-      none: map_get($gap-sizes, none),
-      tiny: map_get($gap-sizes, tiny),
-      median: map_get($gap-sizes, median),
-      big: map_get($gap-sizes, big),
-    ),
-  ),
-  medium: (
-    top: (
-      none: map_get($gap-sizes, none),
-      tiny: map_get($gap-sizes, tiny),
-      median: map_get($gap-sizes, median),
-      big: map_get($gap-sizes, big),
-    ),
-    bottom: (
-      none: map_get($gap-sizes, none),
-      tiny: map_get($gap-sizes, tiny),
-      median: map_get($gap-sizes, median),
-      big: map_get($gap-sizes, big),
-    ),
-  ),
-  large: (
-    top: (
-      none: map_get($gap-sizes, none),
-      tiny: map_get($gap-sizes, tiny),
-      median: map_get($gap-sizes, median),
-      big: map_get($gap-sizes, big),
-    ),
-    bottom: (
-      none: map_get($gap-sizes, none),
-      tiny: map_get($gap-sizes, tiny),
-      median: map_get($gap-sizes, median),
-      big: map_get($gap-sizes, big),
-    ),
-  ),
-) !default;
-
-@each $side in top, bottom {
+@each $side in $sides {
 
   @each $size, $value in $gap-sizes {
 
@@ -76,11 +32,11 @@ $gaps: (
   }
 }
 
-@each $breakpoint, $sides in $gaps {
+@each $breakpoint, $value in $breakpoints {
 
-  @each $side, $sizes in $sides {
+  @each $side in $sides {
 
-    @each $size, $value in $sizes {
+    @each $size, $value in $gap-sizes {
 
       @include breakpoint($breakpoint) {
         .#{$breakpoint}-gap-#{$side}-#{$size} {
