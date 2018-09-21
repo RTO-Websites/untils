@@ -18,10 +18,10 @@ $displays: (
   grid
 ) !default;
 
-@each $property in $displays {
+@each $value in $displays {
 
-  .#{$property} {
-    display: $property;
+  .#{$value} {
+    display: $value;
   }
 
 }

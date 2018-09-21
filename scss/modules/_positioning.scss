@@ -21,10 +21,10 @@ $positions: (
   fixed
 ) !default;
 
-@each $property in $positions {
+@each $value in $positions {
 
-  .#{$property} {
-    position: $property;
+  .#{$value} {
+    position: $value;
   }
 }
 
