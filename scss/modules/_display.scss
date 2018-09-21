@@ -24,9 +24,13 @@ $displays: (
     display: $property;
   }
 
-  @each $breakpoint, $value in $breakpoints {
+}
 
-    @include breakpoint($breakpoint) {
+@each $breakpoint, $value in $breakpoints {
+
+  @include breakpoint($breakpoint) {
+
+    @each $property in $displays {
 
       .#{$breakpoint}-#{$property} {
         display: $property;

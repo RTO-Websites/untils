@@ -26,10 +26,13 @@ $positions: (
   .#{$property} {
     position: $property;
   }
+}
 
-  @each $breakpoint, $value in $breakpoints {
+@each $breakpoint, $value in $breakpoints {
 
-    @include breakpoint($breakpoint) {
+  @include breakpoint($breakpoint) {
+
+    @each $property in $positions {
 
       .#{$breakpoint}-#{$property} {
         position: $property;
