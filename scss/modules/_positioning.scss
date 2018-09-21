@@ -1,3 +1,19 @@
+/**
+ * Positioning
+ *
+ * @author RTO GmbH <info.rto.de>
+ * @license GPL-3.0
+ * @example:
+ *    <div class="small-relative large-absolute">
+ *      This div is position: relative for small and medium viewports.
+ *      For large viewports an up this div is position: absolute.
+ *    </div>
+ * @example:
+ *    <div class="fixed fill">
+ *      This is an overlay.
+ *    </div>
+ */
+
 $positions: (
   "static",
   "relative",
