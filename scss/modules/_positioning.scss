@@ -1,63 +1,24 @@
-.static {
-  position: static;
-}
+$positions: (
+  "static",
+  "relative",
+  "absolute",
+  "fixed"
+) !default;
 
-.relative {
-  position: relative;
-}
+@each $property in $positions {
 
-.absolute {
-  position: absolute;
-}
+  .#{$property} {
+    position: $property;
+  }
 
-.fixed {
-  position: fixed;
-}
+  @each $breakpoint, $value in $breakpoints {
 
-.fill {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
+    @include breakpoint($breakpoint) {
 
-.stretch-x {
-  width: 100%;
-}
+      .#{$breakpoint}-#{$property} {
+        position: $property;
+      }
 
-.stretch-y {
-  height: 100%;
-}
-
-@each $breakpoint, $value in $breakpoints {
-
-  @include breakpoint($breakpoint) {
-
-    .#{$breakpoint}-relative {
-      position: relative;
-    }
-
-    .#{$breakpoint}-absolute {
-      position: absolute;
-    }
-
-    .#{$breakpoint}-fixed {
-      position: fixed;
-    }
-
-    .#{$breakpoint}-fill {
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-    }
-
-    .#{$breakpoint}-stretch-x {
-      width: 100%;
-    }
-
-    .#{$breakpoint}-stretch-y {
-      height: 100%;
     }
 
   }

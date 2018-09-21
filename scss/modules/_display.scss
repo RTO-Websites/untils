@@ -1,45 +1,25 @@
-.block {
-  display: block;
-}
+$displays: (
+  "block",
+  "inline-block",
+  "inline",
+  "flex",
+  "grid"
+) !default;
 
-.inline-block {
-  display: inline-block;
-}
+@each $property in $displays {
 
-.inline {
-  display: inline;
-}
+  .#{$property} {
+    display: $property;
+  }
 
-.flex {
-  display: flex;
-}
+  @each $breakpoint, $value in $breakpoints {
 
-.grid {
-  display: grid;
-}
+    @include breakpoint($breakpoint) {
 
-@each $breakpoint, $value in $breakpoints {
+      .#{$breakpoint}-#{$property} {
+        display: $property;
+      }
 
-  @include breakpoint($breakpoint) {
-
-    .#{$breakpoint}-block {
-      display: block;
-    }
-
-    .#{$breakpoint}-inline-block {
-      display: inline-block;
-    }
-
-    .#{$breakpoint}-inline {
-      display: inline;
-    }
-
-    .#{$breakpoint}-flex {
-      display: flex;
-    }
-
-    .#{$breakpoint}-grid {
-      display: grid;
     }
 
   }
