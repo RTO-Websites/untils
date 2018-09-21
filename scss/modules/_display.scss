@@ -11,11 +11,11 @@
  */
 
 $displays: (
-  "block",
-  "inline-block",
-  "inline",
-  "flex",
-  "grid"
+  block,
+  inline-block,
+  inline,
+  flex,
+  grid
 ) !default;
 
 @each $property in $displays {

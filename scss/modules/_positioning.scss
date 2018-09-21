@@ -15,10 +15,10 @@
  */
 
 $positions: (
-  "static",
-  "relative",
-  "absolute",
-  "fixed"
+  static,
+  relative,
+  absolute,
+  fixed
 ) !default;
 
 @each $property in $positions {
