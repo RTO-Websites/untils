@@ -27,7 +27,7 @@ $space-sizes: (
   @each $size, $value in $space-sizes {
 
     .space-#{$side}-#{$size} {
-      padding-#{$side}: rem-calc($value);
+      padding-#{$side}: rem-calc($value) !important;
     }
   }
 }
@@ -40,7 +40,7 @@ $space-sizes: (
 
       @include breakpoint($breakpoint) {
         .#{$breakpoint}-space-#{$side}-#{$size} {
-          padding-#{$side}: rem-calc($value);
+          padding-#{$side}: rem-calc($value) !important;
         }
       }
     }

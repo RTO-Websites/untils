@@ -27,7 +27,7 @@ $gap-sizes: (
   @each $size, $value in $gap-sizes {
 
     .gap-#{$side}-#{$size} {
-      margin-#{$side}: rem-calc($value);
+      margin-#{$side}: rem-calc($value) !important;
     }
   }
 }
@@ -40,7 +40,7 @@ $gap-sizes: (
 
       @include breakpoint($breakpoint) {
         .#{$breakpoint}-gap-#{$side}-#{$size} {
-          margin-#{$side}: rem-calc($value);
+          margin-#{$side}: rem-calc($value) !important;
         }
       }
     }
