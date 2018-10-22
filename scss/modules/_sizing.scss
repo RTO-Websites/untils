@@ -1,0 +1,32 @@
+/**
+ * Sizing
+ *
+ * @author RTO GmbH <info.rto.de>
+ * @license GPL-3.0
+ * @example:
+ *    <div class="position-fixed medium-fill">
+ *      This is an overlay.
+ *    </div>
+ */
+
+.fill {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+@each $breakpoint, $value in $breakpoints {
+
+  @include breakpoint($breakpoint) {
+
+    .#{$breakpoint}-fill {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+  }
+
+}

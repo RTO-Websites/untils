@@ -8,6 +8,7 @@
  *      Content
  *    </div>
  */
+@import "../sharedVariables/sides";
 
 $space-size-none: 0 !default;
 $space-size-tiny: 10 !default;
@@ -21,70 +22,25 @@ $space-sizes: (
   big: $space-size-big
 ) !default;
 
-$spaces: (
-  small: (
-    top: (
-      none: map_get($space-sizes, none),
-      tiny: map_get($space-sizes, tiny),
-      median: map_get($space-sizes, median),
-      big: map_get($space-sizes, big),
-    ),
-    bottom: (
-      none: map_get($space-sizes, none),
-      tiny: map_get($space-sizes, tiny),
-      median: map_get($space-sizes, median),
-      big: map_get($space-sizes, big),
-    ),
-  ),
-  medium: (
-    top: (
-      none: map_get($space-sizes, none),
-      tiny: map_get($space-sizes, tiny),
-      median: map_get($space-sizes, median),
-      big: map_get($space-sizes, big),
-    ),
-    bottom: (
-      none: map_get($space-sizes, none),
-      tiny: map_get($space-sizes, tiny),
-      median: map_get($space-sizes, median),
-      big: map_get($space-sizes, big),
-    ),
-  ),
-  large: (
-    top: (
-      none: map_get($space-sizes, none),
-      tiny: map_get($space-sizes, tiny),
-      median: map_get($space-sizes, median),
-      big: map_get($space-sizes, big),
-    ),
-    bottom: (
-      none: map_get($space-sizes, none),
-      tiny: map_get($space-sizes, tiny),
-      median: map_get($space-sizes, median),
-      big: map_get($space-sizes, big),
-    ),
-  ),
-) !default;
-
-@each $side in top, bottom {
+@each $side in $sides {
 
   @each $size, $value in $space-sizes {
 
     .space-#{$side}-#{$size} {
-      padding-#{$side}: rem-calc($value);
+      padding-#{$side}: rem-calc($value) !important;
     }
   }
 }
 
-@each $breakpoint, $sides in $spaces {
+@each $breakpoint, $value in $breakpoints {
 
-  @each $side, $sizes in $sides {
+  @each $side in $sides {
 
-    @each $size, $value in $sizes {
+    @each $size, $value in $space-sizes {
 
       @include breakpoint($breakpoint) {
         .#{$breakpoint}-space-#{$side}-#{$size} {
-          padding-#{$side}: rem-calc($value);
+          padding-#{$side}: rem-calc($value) !important;
         }
       }
     }

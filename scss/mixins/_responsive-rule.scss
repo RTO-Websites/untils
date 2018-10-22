@@ -1,0 +1,31 @@
+@mixin responsive-rule($selector, $declarations) {
+
+  .#{$selector} {
+
+    @each $property, $value in $declarations {
+
+      #{$property}: #{$value};
+
+    }
+
+  }
+
+  @each $breakpoint, $value in $breakpoints {
+
+    @include breakpoint($breakpoint) {
+
+      .#{$breakpoint}-#{$selector} {
+
+        @each $property, $value in $declarations {
+
+          #{$property}: #{$value};
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
